@@ -10,12 +10,17 @@ def run_chat():
     print('You: (type exit to quit)')
     system_message = "Your name is Alex. You are a helpful and friendly assistant who helps students learn about technology and computer science. You explain things clearly and always encourage curiosity."
     history = []
-
+    num=1
     while True:
-        user_input = input('>> ')
+        user_input = input('>> ') + str(num)
 
         if user_input.lower() == 'exit':
             break
+        num += 1
+        elif user_input.lower() == 'reset':
+            history = []
+            print('History cleared.')
+            continue
 
         history.append({'role': 'user', 'content': user_input})
         print('History:', history)
