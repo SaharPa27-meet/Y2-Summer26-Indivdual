@@ -18,6 +18,7 @@ def run_chat():
             break
 
         history.append({'role': 'user', 'content': user_input})
+        print('History:', history)
 
         response = client.messages.create(
             model='claude-haiku-4-5-20251001',
@@ -26,9 +27,12 @@ def run_chat():
             system=system_message,
             messages=history
         )
+        print(response)
+
 
         reply = response.content[0].text
         print(f'Claude: {reply}')
         history.append({'role': 'assistant', 'content': reply})
 
 run_chat()
+
