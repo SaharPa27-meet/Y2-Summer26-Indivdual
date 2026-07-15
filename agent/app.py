@@ -16,11 +16,12 @@ def run_chat():
 
         if user_input.lower() == 'exit':
             break
-        num += 1
         elif user_input.lower() == 'reset':
             history = []
             print('History cleared.')
             continue
+        
+        num += 1
 
         history.append({'role': 'user', 'content': user_input})
         print('History:', history)
